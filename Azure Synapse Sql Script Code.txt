@@ -1,0 +1,22 @@
+-- This is auto-generated code
+SELECT
+    TOP 100 *
+FROM
+    OPENROWSET(
+        BULK 'https://earthquakeadlstorage.dfs.core.windows.net/gold/earthquake_events_gold/**',
+        FORMAT = 'PARQUET'
+    ) AS [result]
+
+
+SELECT
+    country_code,
+    COUNT(CASE WHEN LOWER(sig_class) = 'low' THEN 1 END) AS low_count,
+    COUNT(CASE WHEN LOWER(sig_class) IN ('medium', 'moderate') THEN 1 END) AS medium_count,
+    COUNT(CASE WHEN LOWER(sig_class) = 'high' THEN 1 END) AS high_count
+FROM
+    OPENROWSET(
+        BULK 'https://earthquakeadlstorage.dfs.core.windows.net/gold/earthquake_events_gold/**',
+        FORMAT = 'PARQUET'
+    ) AS [result]
+GROUP BY
+    country_code;
