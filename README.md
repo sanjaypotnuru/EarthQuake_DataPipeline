@@ -26,13 +26,10 @@ Simple ETL pipeline that ingests earthquake events from the USGS API and stages/
 - Use notebook logs to inspect returned JSON between activities when troubleshooting ADF/Synapse mappings.
 
 ## Quick Git steps (from repo root)
-- Save the README as `README.md` at the repository root.
-- Commit and push:
+- Saved the README as `README.md` at the repository root.
+- For Commit and push:
 ```bash
 git add README.md
 git commit -m "Add README for EarthQuake Azure Pipeline"
 git push origin main
 ```
-
-## License
-- Add a
